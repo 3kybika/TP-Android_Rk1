@@ -54,11 +54,11 @@ public class NumbersRecycleViewAdapter extends RecyclerView.Adapter<NumbersRecyc
             int value = adapter.getItem(position);
             numberTextView.setText(String.valueOf(value));
             if(value < 0 ) {
-                itemView.setBackgroundColor(
+                this.itemView.setBackgroundColor(
                         mContext.getResources().getColor(R.color.red)
                 );
             } else {
-                itemView.setBackgroundColor(
+                this.itemView.setBackgroundColor(
                         mContext.getResources().getColor(R.color.white)
                 );
             }
@@ -86,10 +86,6 @@ public class NumbersRecycleViewAdapter extends RecyclerView.Adapter<NumbersRecyc
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    public void setItems(List<Integer> items) {
-        this.items = items;
     }
 
     private int getItem(int position) {

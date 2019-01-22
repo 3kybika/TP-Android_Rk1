@@ -11,10 +11,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView numbersRecyclerView;
     public static int
-            LIST_LENGTH = 10,
-            NUMBER_RANGE_MAX = 20,
+            LIST_LENGTH = 100,
+            NUMBER_RANGE_MAX = 10,
             NUMBER_RANGE_MIN = 10;
 
     @Override
@@ -30,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
                 this.getApplicationContext(), getList()
         );
 
-        numbersRecyclerView = findViewById(R.id.numbers_recycle_view);
+        RecyclerView numbersRecyclerView = findViewById(R.id.numbers_recycle_view);
         numbersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         numbersRecyclerView.setAdapter(adapter);
     }
 
     private List<Integer> getList() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         final Random random = new Random();
-        for (int i = 0; i < LIST_LENGTH ; i = i + 1) {
+        for (int i = 0; i < LIST_LENGTH ; i += 1) {
             list.add(
-                    random.nextInt(NUMBER_RANGE_MAX + NUMBER_RANGE_MIN - NUMBER_RANGE_MIN)
+                    random.nextInt(NUMBER_RANGE_MAX + NUMBER_RANGE_MIN) - NUMBER_RANGE_MIN
             );
         }
         return list;
